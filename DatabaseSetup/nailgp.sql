@@ -13,10 +13,10 @@ CREATE TABLE predictions (
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE session (
-    sid VARCHAR NOT NULL COLLATE "default",
-    sess JSON NOT NULL,
-    expire TIMESTAMP(6) NOT NULL,
-    PRIMARY KEY (sid)
-)
-WITH (OIDS=FALSE);
+CREATE TABLE sessions (
+    id SERIAL PRIMARY KEY,
+    session_id VARCHAR(255) NOT NULL,
+    data BYTEA NOT NULL,
+    expiry TIMESTAMP(6) NOT NULL
+);
+
